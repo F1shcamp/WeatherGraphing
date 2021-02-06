@@ -1,4 +1,6 @@
-# This is a test of Numpy Graphing
+# This is a test of Numpy Graphing and Json using data from internet
+
+#Import statements
 import urllib
 import json
 import urllib.request
@@ -23,10 +25,12 @@ plt.plot(x,y, label = 'loaded from file')'''
 '''x,y = np.loadtxt('example.csv',delimiter = ',', unpack=True)
 plt.plot(x,y, label = 'loaded from file')'''
 
-#Sample 3
+#Sample 3 - using URL dataset in JSON format
 def graph_data(location):
     url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"+ location + "?key=F3TTF62K96W72EA7MJS2CNL5V"
+#Read data from URL
     response = urllib.request.urlopen(url).read().decode()
+#Load JSON data into a library
     weather_data = json.loads(response)
     i = 0
     while i < (len(weather_data['days'])):
