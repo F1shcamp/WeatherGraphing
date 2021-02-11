@@ -4,6 +4,7 @@
 import urllib
 import json
 import urllib.request
+from urllib.parse import quote
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 
@@ -75,7 +76,8 @@ def graph_data(location):
 
 
 
-graph_data('San%20Diego')
+graph_data(quote('Salt Lake City'))
+
 plt.plot(x,y, label = 'loaded from file')
 plt.xlabel('x')
 plt.ylabel('y')
